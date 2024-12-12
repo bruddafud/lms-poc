@@ -8,7 +8,7 @@ terraform {
     storage_account_name = "plearthtfstate"
     container_name       = "plearthtfstate"
     use_azuread_auth     = false
-    key                  = "terraform.tfstate"
+    key                  = "terraform.lmspocstate"
   }
   required_providers {
     azurerm = {
@@ -19,11 +19,14 @@ terraform {
       source  = "aztfmod/azurecaf"
       version = "~>1.2.24"
     }
+    azapi = {
+      source = "Azure/azapi"
+      version = "~>1.0.0"
+    }
   }
 }
 
 provider "azurerm" {
-  skip_provider_registration = "true"
   features {
     key_vault {
       purge_soft_delete_on_destroy = false
@@ -33,6 +36,8 @@ provider "azurerm" {
     }
   }
 }
+
+provider "azapi" {}
 
 # Make client_id, tenant_id, subscription_id and object_id variables
 data "azurerm_client_config" "current" {}

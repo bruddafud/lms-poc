@@ -1,6 +1,6 @@
 {
     "storage_account_name": "plearthtfstate",
     "container_name": "plearthtfstate",
-    "key": "terraform.tfstate",
+    "key": "terraform.lmspocstate",
     "resource_group_name": "pe-devops"
 }
