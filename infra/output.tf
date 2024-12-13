@@ -3,10 +3,6 @@ output "AZURE_KEY_VAULT_ENDPOINT" {
   sensitive = true
 }
 
-output "REACT_APP_WEB_BASE_URL" {
-  value = module.web.URI
-}
-
 output "AZURE_LOCATION" {
   value = var.location
 }
