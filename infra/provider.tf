@@ -12,7 +12,7 @@ terraform {
   }
   required_providers {
     azurerm = {
-      version = "~>3.98"
+      version = ">= 3.98, < 4.0.0"
       source  = "hashicorp/azurerm"
     }
     azurecaf = {
@@ -32,7 +32,6 @@ provider "azurerm" {
     }
   }
 }
-
 
 # Make client_id, tenant_id, subscription_id and object_id variables
 data "azurerm_client_config" "current" {}
