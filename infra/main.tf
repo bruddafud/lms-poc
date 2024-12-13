@@ -139,5 +139,7 @@ module "container_apps" {
       }
     },
   }
-  log_analytics_workspace_name = local.resource_token
+  log_analytics_workspace = {
+    id = loganalytics.LOGANALYTICS_WORKSPACE_ID
+  }
 }
