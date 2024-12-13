@@ -140,6 +140,6 @@ module "container_apps" {
     },
   }
   log_analytics_workspace = {
-    id = loganalytics.LOGANALYTICS_WORKSPACE_ID
+    id = module.loganalytics.LOGANALYTICS_WORKSPACE_ID
   }
 }
