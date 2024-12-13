@@ -61,11 +61,12 @@ module "container_apps" {
   location                       = var.location
   container_app_environment_name = var.environment_name
 
-  container_app_environment = {
+/*  
+    container_app_environment = {
     name                = var.environment_name
     resource_group_name = azurecaf_name.rg_name.result
   }
-
+*/
   container_apps = {
     counting = {
       name          = local.counting_app_name
