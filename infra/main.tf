@@ -25,19 +25,6 @@ resource "azurerm_resource_group" "rg" {
 }
 
 # ------------------------------------------------------------------------------------------------------
-# Deploy application insights
-# ------------------------------------------------------------------------------------------------------
-module "applicationinsights" {
-  source           = "./modules/applicationinsights"
-  location         = var.location
-  rg_name          = azurerm_resource_group.rg.name
-  environment_name = var.environment_name
-  workspace_id     = module.loganalytics.LOGANALYTICS_WORKSPACE_ID
-  tags             = azurerm_resource_group.rg.tags
-  resource_token   = local.resource_token
-}
-
-# ------------------------------------------------------------------------------------------------------
 # Deploy log analytics
 # ------------------------------------------------------------------------------------------------------
 module "loganalytics" {
