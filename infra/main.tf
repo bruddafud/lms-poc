@@ -26,6 +26,8 @@ resource "azurerm_resource_group" "rg" {
   tags = local.tags
 }
 
+
+
 # ------------------------------------------------------------------------------------------------------
 # Deploy log analytics
 # ------------------------------------------------------------------------------------------------------
@@ -49,8 +51,12 @@ module "keyvault" {
   resource_token = local.resource_token
   secrets = [
     {
-      name  = "secretname"
-      value = "secretvalue"
+      name  = "sqladminlogin"
+      value = var.sql_login
+    },
+    {
+      name  = "sqladminpassword"
+      value = var.sql_password
     }
   ]
 }
@@ -142,4 +148,28 @@ module "container_apps" {
   log_analytics_workspace = {
     id = module.loganalytics.LOGANALYTICS_WORKSPACE_ID
   }
+}
+
+resource "azurerm_sql_server" "sqlserver" {
+    name                        = "${var.environment_name}sql"
+    resource_group_name         = azurerm_resource_group.rg.name
+    location                    = var.location
+    version                     = "12.0"
+
+    administrator_login         = var.sql_login
+    administrator_login_password = var.sql_password
+}
+
+resource "azurerm_mssql_database" "db" {
+  name      = "savelmsdb"
+  server_id = azurerm_mssql_server.server.id
+  collation                   = "SQL_Latin1_General_CP1_CI_AS"
+
+    auto_pause_delay_in_minutes = 60
+    max_size_gb                 = 32
+    min_capacity                = 0.1
+    read_replica_count          = 0
+    read_scale                  = false
+    sku_name                    = "GP_S_Gen5_1"
+    zone_redundant              = false
 }

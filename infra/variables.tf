@@ -14,3 +14,15 @@ variable "principal_id" {
   type        = string
   default     = ""
 }
+
+variable "sql_login" {
+  description = "The login id for the sql server"
+  type        = string
+  default     = ""
+}
+
+variable "sql_password" {
+  description = "The password for the sql server"
+  type        = string
+  default     = ""
+}

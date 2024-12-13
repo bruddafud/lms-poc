@@ -57,6 +57,8 @@ jobs:
           ARM_TENANT_ID: ${{ vars.ARM_TENANT_ID }}
           ARM_CLIENT_ID: ${{ vars.ARM_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          SQL_LOGIN: ${{ secrets.SQL_LOGIN }}
+          SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
           RS_RESOURCE_GROUP: ${{ vars.RS_RESOURCE_GROUP }}
           RS_STORAGE_ACCOUNT: ${{ vars.RS_STORAGE_ACCOUNT }}
           RS_CONTAINER_NAME: ${{ vars.RS_CONTAINER_NAME }}
