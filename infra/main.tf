@@ -4,9 +4,7 @@ locals {
     "com.save.provisioner" = "terraform"
     "com.save.responsible" = "brent.rutherford@savethechildren.org.au"
   }
-  sha                          = base64encode(sha256("lms-poc-save${var.environment_name}${var.location}${data.azurerm_client_config.current.subscription_id}"))
-  resource_token               = substr(replace(lower(local.sha), "[^A-Za-z0-9_]", ""), 0, 13)
-}
+  resource_token               = "lmspocsave"
 # ------------------------------------------------------------------------------------------------------
 # Deploy resource Group
 # ------------------------------------------------------------------------------------------------------
