@@ -150,7 +150,7 @@ module "container_apps" {
   }
 }
 
-resource "azurerm_sql_server" "sqlserver" {
+resource "azurerm_mssql_server" "sqlserver" {
     name                        = "${var.environment_name}sql"
     resource_group_name         = azurerm_resource_group.rg.name
     location                    = var.location
