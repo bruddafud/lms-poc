@@ -2,7 +2,7 @@
 
 # Configure the Azure Provider
 terraform {
-  required_version = ">= 1.1.7, < 2.0.0"
+  required_version = ">= 1.2, < 2.0.0"
   backend "azurerm" {
     resource_group_name  = "pe-devops"
     storage_account_name = "plearthtfstate"
@@ -12,7 +12,7 @@ terraform {
   }
   required_providers {
     azurerm = {
-      version = "~>3.98, < 4.0"
+      version = "~>3.98"
       source  = "hashicorp/azurerm"
     }
     azurecaf = {
@@ -33,11 +33,6 @@ provider "azurerm" {
   }
 }
 
-provider "azapi" {}
-
-provider "modtm" {
-  enabled = false
-}
 
 # Make client_id, tenant_id, subscription_id and object_id variables
 data "azurerm_client_config" "current" {}
