@@ -162,7 +162,7 @@ resource "azurerm_sql_server" "sqlserver" {
 
 resource "azurerm_mssql_database" "db" {
   name      = "savelmsdb"
-  server_id = azurerm_mssql_server.server.id
+  server_id = azurerm_mssql_server.sqlserver.id
   collation                   = "SQL_Latin1_General_CP1_CI_AS"
 
     auto_pause_delay_in_minutes = 60
