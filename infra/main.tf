@@ -46,8 +46,8 @@ module "keyvault" {
   resource_token = local.resource_token
   secrets = [
     {
-      name  = "secret_name"
-      value = "secret_value"
+      name  = "secretname"
+      value = "secretvalue"
     }
   ]
 }
